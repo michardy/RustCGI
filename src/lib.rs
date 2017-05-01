@@ -55,9 +55,9 @@ pub fn get_payload_form_data() -> HashMap<String, String>{
 pub fn get_url_form_data() -> HashMap<String, String>{
     let mut out = HashMap::new();
     let payload = get_header("QUERY_STRING");
-    let re = Regex::new("([\\w]+)=([\\w]+)&*").unwrap();
+    let re = Regex::new("\\?*([^?/&=\\s]+)=([^?/&=\\s]+)&*").unwrap();
     for cg in re.captures_iter(&payload[..]){
-        out.insert(cg[0].to_string(), cg[1].to_string());
+        out.insert(cg[0].to_string(), percent_remove(cg[1].to_string()));
     }
     out
 }
