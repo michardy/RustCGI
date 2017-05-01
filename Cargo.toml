@@ -1,0 +1,7 @@
+[package]
+name = "CGI"
+version = "0.1.0"
+authors = ["Michael Hardy <mhardy17@bayschoolsf.org>"]
+
+[dependencies]
+regex = "0.2.1"
