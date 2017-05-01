@@ -12,7 +12,7 @@ const BLOCK_SIZE: usize = 256;
 pub fn get_header(evk: &str) -> String{
     match env::var(evk) {
         Ok(val) => val,
-        Err(e) => String::from(""),
+        Err(e) => panic!("{}", e),
     }
 }
 
@@ -23,7 +23,7 @@ fn percent_remove(payload: String) -> String{
 	let replacement = u8::from_str_radix(&cg[1], 16).unwrap();
         out = out.replace(&cg[0], str::from_utf8(&[replacement]).unwrap());
     }
-    out
+    out.replace("+", " ")
 }
 
 pub fn get_payload() -> String{

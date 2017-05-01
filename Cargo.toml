@@ -1,5 +1,5 @@
 [package]
-name = "CGI"
+name = "cgi"
 version = "0.1.0"
 authors = ["Michael Hardy <mhardy17@bayschoolsf.org>"]
 
